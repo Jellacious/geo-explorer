@@ -1,0 +1,10 @@
+
+<h1>Les déparements</h1>
+
+<ul>
+  @for (dept of departements(); track dept.code) {
+    <li>{{dept.code}} - {{ dept.nom }}</li>
+  } @empty {
+    <li>Chargement...</li>
+  }
+</ul>
