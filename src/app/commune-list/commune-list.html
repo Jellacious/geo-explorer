@@ -1,0 +1,11 @@
+<a [routerLink]="['/']">Tous les départements</a>
+
+<ul>
+  @for (commune of communes(); track commune.code) {
+    <li>
+      <a>{{commune.code}} - {{ commune.nom }}</a>
+    </li>
+  } @empty {
+    <li>Chargement...</li>
+  }
+</ul>
