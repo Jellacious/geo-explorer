@@ -1,11 +1,12 @@
 <a [routerLink]="['/']">Tous les départements</a>
+<br />
+<input type="search" [(ngModel)]="search" placeholder="Rechercher une commune..." />
+<p>{{ filteredCommunes().length }} communes sur {{ communes().length }}</p>
 
-<ul>
-  @for (commune of communes(); track commune.code) {
-    <li>
-      <a>{{commune.code}} - {{ commune.nom }}</a>
-    </li>
+<div class="grid">
+  @for (commune of filteredCommunes(); track commune.code) {
+    <app-commune-card [commune]="commune" />
   } @empty {
-    <li>Chargement...</li>
+    <p>Chargement...</p>
   }
-</ul>
+</div>
