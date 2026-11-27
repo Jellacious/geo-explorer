@@ -5,7 +5,11 @@
 
 <div class="grid">
   @for (commune of filteredCommunes(); track commune.code) {
-    <app-commune-card [commune]="commune" />
+    <app-commune-card
+      [commune]="commune"
+      [favorite]="favorites.isFavorite(commune.code)"
+      (toggleFavorite)="favorites.toggle($event)"
+    />
   } @empty {
     <p>Chargement...</p>
   }

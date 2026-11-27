@@ -1,3 +1,13 @@
-<h3>{{commune().nom}}</h3>
-<p>Code postal : {{ commune().codesPostaux }}</p>
-<p>Population : {{ commune().population | number }} habitants</p>
+<div [class.favorite]="favorite()">
+  <h3>{{ commune().nom }}</h3>
+  <p>Code postal : {{ commune().codesPostaux }}</p>
+  <p>Population : {{ commune().population | number }} habitants</p>
+
+  <button (click)="toggleFavorite.emit(commune())">
+    @if (favorite()) {
+      Retirer des favoris
+    } @else {
+      Ajouter aux favoris
+    }
+  </button>
+</div>

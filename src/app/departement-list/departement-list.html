@@ -1,10 +1,9 @@
-
 <h1>Les départements</h1>
 
 <ul>
   @for (dept of departements(); track dept.code) {
     <li>
-      <a [routerLink]="['/departements', dept.code]">{{dept.code}} - {{ dept.nom }}</a>
+      <a [routerLink]="['/departements', dept.code]">{{ dept.code }} - {{ dept.nom }}</a>
     </li>
   } @empty {
     <li>Chargement...</li>
